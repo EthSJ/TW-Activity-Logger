@@ -15,8 +15,15 @@ int main(int argc, char* argv[])
     std::string huge_list;
     bool enable = true;
 
+    //check on file
+    myfile.open(argv[1]);
+    if (myfile.fail())
+    {
+        std::cerr<<"Opening file failed\n";
+        return -1;
+    }
+
     /* Parsing */
-    myfile.open("name.txt");
     while(myfile >> c)
     {
         //remove commas while reading
@@ -30,8 +37,7 @@ int main(int argc, char* argv[])
         //disable reading and add prior name
         else if (c =='(')
         {
-            Node* add = new Node(huge_list);
-            list.addNode(add);
+            list.addNode(huge_list);
             huge_list.clear();
             enable = false;
         }
@@ -40,9 +46,9 @@ int main(int argc, char* argv[])
         {  enable = true;  }
     }
     myfile.close();
-    std::string yep;
-    list.RNGwinner(yep);
-    list.printList(yep);
+
+    list.RNGwinner();
+    list.printList();
 
     return 0;
 }

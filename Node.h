@@ -5,13 +5,14 @@
 
 class Node
 {
-//All the variables. Needed private by default.
-public:
+//All the variables.
+private:
+    friend class LinkedList;
+
     std::string name;
     unsigned num_times;
     Node *next;
 
-public:
     //node constructor
     Node()
     {next=nullptr;}
@@ -26,6 +27,11 @@ public:
     { return name;  }
     void setName(std::string nom)
     { name = nom;  }
+
+    unsigned getNum()
+    { return num_times;  }
+    void setNum(unsigned n)
+    { num_times = n;  }
 
     //Just in case, get and set the next node.
     Node *getNext()

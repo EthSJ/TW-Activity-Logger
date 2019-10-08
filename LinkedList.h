@@ -8,6 +8,7 @@ class LinkedList
 {
 private:
     Node* head;
+    std::string win;
 
 public:
     LinkedList();
@@ -18,12 +19,12 @@ public:
     {return head;}
 
     //Add nodes + get rid of node.
-    void addNode(Node* newNode);
+    void addNode(std::string hlist);
 
     //prints the node.
-    void printList(std::string &winner);
+    void printList();
 
-    void RNGwinner(std::string &win);
+    void RNGwinner();
 
 };
 

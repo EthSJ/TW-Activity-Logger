@@ -9,9 +9,7 @@ Node::Node(std::string nom)
 
 //Deconstructor. Error messages due current functionallity
 Node::~Node()
-{
-
-}
+{}
 
 
 

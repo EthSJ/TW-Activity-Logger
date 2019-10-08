@@ -6,15 +6,11 @@
 
 //linked list marker.
 LinkedList::LinkedList()
-{
-    head = NULL;
-}
+{ head = NULL; }
 
 //overloaded linked list constructor.
 LinkedList::LinkedList(Node *next)
-{
-    head = next;
-}
+{ head = next; }
 
 //Linked List obliterator. Deletes all nodes as well.
 LinkedList::~LinkedList()
@@ -31,8 +27,9 @@ LinkedList::~LinkedList()
 
 //adds a new node in.
 //If no head, add. If it's bigger than head, swap. Else find a spot for it.
-void LinkedList::addNode(Node* newNode)
+void LinkedList::addNode(std::string hlist)
 {
+    Node* newNode = new Node(hlist);
     if (!head)
         head = newNode;
     else if(head->name == newNode->name)
@@ -66,7 +63,7 @@ void LinkedList::addNode(Node* newNode)
 
 }
 
-void LinkedList::printList(std::string &winner)
+void LinkedList::printList()
 {
     std::ofstream file;
     file.open("output.txt");
@@ -78,6 +75,7 @@ void LinkedList::printList(std::string &winner)
         file << "\n";
         return;
     }
+    //List out everyone
     else
     {
         while(ptr!=NULL)
@@ -105,7 +103,7 @@ void LinkedList::printList(std::string &winner)
         {
             if(ptr->num_times >=5)
             {
-                if(ptr->name == winner)
+                if(ptr->name == win)
                     file << "Winner: "<< ptr->name << " with "<< ptr->num_times <<"\n";
                 else
                     file << ptr->name << " with "<< ptr->num_times <<"\n";
@@ -119,10 +117,10 @@ void LinkedList::printList(std::string &winner)
     file.close();
 }
 
-void LinkedList::RNGwinner(std::string &win)
+void LinkedList::RNGwinner()
 {
     Node* ptr = head;
-    int random=0;
+    unsigned random=0;
 
     if(ptr==NULL)
     {
