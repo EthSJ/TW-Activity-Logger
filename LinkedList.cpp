@@ -140,7 +140,11 @@ void LinkedList::RNGwinner()
         }
     }
     ptr=head;
-    random= rand()%random+1;
+    if(random ==0)
+            random = 1;
+    else
+        random= rand()%random+1;
+
     unsigned k=0;
 
     if(ptr==NULL)
