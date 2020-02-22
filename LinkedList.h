@@ -22,7 +22,7 @@ public:
     void addNode(std::string hlist);
 
     //prints the node.
-    void printList();
+    void printList(std::string& name);
 
     void RNGwinner();
 

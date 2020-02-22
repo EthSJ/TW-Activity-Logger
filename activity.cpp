@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
     char c;
     std::ifstream myfile;
     LinkedList list;
-    std::string huge_list;
+    std::string huge_list, name;
     bool enable = true;
 
     //check on file
@@ -22,6 +22,18 @@ int main(int argc, char* argv[])
         std::cerr<<"Opening file failed\n";
         return -1;
     }
+    //name output
+    if(argc > 2)
+    {
+        std::ifstream chksm;
+        chksm.open(argv[2]);
+        if (chksm.fail())
+            name="output.txt";
+        else
+            name=argv[2];
+    }
+    else
+        name="output.txt";
 
     /* Parsing */
     while(myfile >> c)
@@ -48,7 +60,7 @@ int main(int argc, char* argv[])
     myfile.close();
 
     list.RNGwinner();
-    list.printList();
+    list.printList(name);
 
     return 0;
 }

@@ -58,15 +58,18 @@ void LinkedList::addNode(std::string hlist)
             }
             p1 = p1->next;
         }
-        p1->next = newNode;
+        if(p1->name == newNode->name)
+            p1->num_times++;
+        else
+            p1->next = newNode;
     }
 
 }
 
-void LinkedList::printList()
+void LinkedList::printList(std::string& name)
 {
     std::ofstream file;
-    file.open("output.txt");
+    file.open(name);
 
     Node* ptr = head;
     //print it out
