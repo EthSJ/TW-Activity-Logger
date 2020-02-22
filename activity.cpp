@@ -28,9 +28,9 @@ int main(int argc, char* argv[])
         std::ifstream chksm;
         chksm.open(argv[2]);
         if (chksm.fail())
-            name="output.txt";
-        else
             name=argv[2];
+        else
+            name="output.txt";
     }
     else
         name="output.txt";
